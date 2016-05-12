@@ -16,6 +16,7 @@ function setFilterHandler(){
     filterobj.sportscheck = $('.ui.checkbox.sportsbox').checkbox('is checked')
     getData(filterobj.zipcoe)
     dateParser(filterobj.zipcode)
+  
     // setTimeout(filterRender, 3000)
   })
 }

@@ -496,10 +496,10 @@ function showsRender(obj){
 
 function eventTitleHandler(obj){
   // console.log(obj);
-    title = $('<h3>').text(obj.title);
-    time = $('<p>').text(obj.time);
-    venuename = $('<p>').text(obj.venue_name);
-    venueaddress = $('<p>').text(obj.venue_address);
+    title = $('<h3>').text(obj.title).addClass('modaltitle');
+    time = $('<p>').text(obj.time).addClass('modaltime');
+    venuename = $('<p>').text(obj.venue_name).addClass('modalvenname');
+    venueaddress = $('<p>').text(obj.venue_address).addClass('modaladdress');
 
     $(".close").on("click", function(e){
       e.preventDefault();
@@ -513,6 +513,34 @@ function eventTitleHandler(obj){
     $(".location-tag").append(venuename, venueaddress);
     $(".time-tag").append(time);
     $('.ui.modal').modal('show');
+    $('#save-event').click(saveUserData)
+
+}
+
+
+
+
+function saveUserData(){
+
+var title = $('.modaltitle').text()
+var time = $('.modaltime').text()
+var venuename = $('.modalvenname').text()
+var venueaddress = $('.modaladdress').text()
+saved = $('<p>').text('Saved!!')
+
+
+$.post({url: "/events",
+method: "post",
+data: {
+  title: title,
+  time: time,
+  venuename: venuename,
+  venueaddress: venueaddress
+},
+success: function(data){ console.log(data) }
+
+})
+  $('.actions').append(saved)
 
 }
 

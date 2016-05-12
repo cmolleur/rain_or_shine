@@ -18,7 +18,7 @@ eventRouter.post("/", function(req, res){
 });
 
 eventRouter.get("/", function(req, res){
-  res.json( req.user.events );
+  res.json( req.user );
 
 });
 

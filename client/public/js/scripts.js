@@ -66,21 +66,56 @@ auth.users = {
   getAll: function(){
     return $.getJSON("/api/users");
   },
-  renderUsers: function(users){
-    var $container = $("#users-container");
-    users.forEach( function(user){
-      var $user = $("<li>");
-      var $usersaved =  $('<div>').text(user.events[0].name)
-      $("#username-display").text(user.username);
 
-      $('.user-profile').append($usersaved)
+    renderUsers: function(){
+      renderUserData()
 
-      // $user.html("Username: " + user.username + " <br/> Email: " + user.email );
-      $container.append($user);
-    });
+    // var $container = $("#users-container");
+    // users.forEach( function(user){
+    //   var $user = $("<li>");
+    //   // var $usersaved =  $('<div>').text(user.events[0].name)
+    //   $("#username-display").text(user.username);
+    //
+    //   // $('.user-profile').append($usersaved)
+    //
+    //   // $user.html("Username: " + user.username + " <br/> Email: " + user.email );
+    //   $container.append($user);
+    // });
   }
 
 }
+
+
+function renderUserData(){
+  $.post({url: "/events",
+method: "get",
+success: function(data){
+  console.log(data);
+  $("#username-display").text(data.username);
+
+  for (var i = 0; i < data.events.length; i++) {
+    usersaved =  $('<div>')
+    savetitle   = data.events[i].title
+    saveaddress =  data.events[i].venueaddress
+    savevenname = data.events[i].venuename
+    savetime    = data.events[i].time
+    usersaved.text(savetitle + " " + saveaddress + " " + savevenname + " " + savetime )
+
+    $('.user-profile').append(usersaved)
+
+  }
+
+
+  }
+
+
+})
+
+
+}
+
+
+
 
 
 
