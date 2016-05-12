@@ -14,10 +14,9 @@ function setFilterHandler(){
     filterobj.showcheck = $('.ui.checkbox.showsbox').checkbox('is checked')
     filterobj.musiccheck = $('.ui.checkbox.musicbox').checkbox('is checked')
     filterobj.sportscheck = $('.ui.checkbox.sportsbox').checkbox('is checked')
-    getData(filterobj.zipcoe)
+    getData(filterobj.zipcode)
     dateParser(filterobj.zipcode)
-  
-    // setTimeout(filterRender, 3000)
+
   })
 }
 

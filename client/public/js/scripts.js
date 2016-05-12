@@ -85,7 +85,6 @@ auth.users = {
 
 }
 
-
 function renderUserData(){
   $.post({url: "/events",
 method: "get",

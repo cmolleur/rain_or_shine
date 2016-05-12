@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Rain of Shine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.1/js.cookie.min.js" charset="utf-8"></script>
@@ -17,31 +17,6 @@
   </head>
   <body>
 
-    <!-- MODAL -->
-    <div class="ui modal">
-      <i class="close icon"></i>
-      <div class="header">
-      </div>
-      <div class="image content">
-        <div class="description">
-          <div class="location">
-            <h3>Location:</h3>
-            <p class="location-tag">
-
-            </p>
-          </div>
-          <div class="time">
-            <h3>Event Time:</h3>
-            <p class="time-tag">
-            <p>
-          </div>
-        </div>
-      </div>
-      <div class="actions">
-        <div id="save-event" class="ui button primary">Favorite <i class="heart icon"></i></div>
-      </div>
-    </div>
-
 
     <div class="container">
 
@@ -49,7 +24,7 @@
       <div class="side-bar center">
 
         <div class="top">
-          <img src="../images/logo-white.svg" alt="" />
+          <a href="/weather"><img src="../images/logo-white.svg" alt="" /></a>
         </div>
 
         <h1>Events for <span class="city-zip"></span></h1>
@@ -122,6 +97,17 @@
       <div class="content-section">
         <div id="data-accordion" class="ui styled fluid accordion">
         </div>
+        <div class="empty-div">
+          <img src="https://media.giphy.com/media/Nzn4mTqGLauBO/giphy.gif" alt="" />
+        </div>
+
+        <!-- <div id="loader" class="ui segment">
+          <div class="ui active inverted dimmer">
+            <div class="ui text loader">Loading</div>
+          </div>
+          <p></p>
+        </div> -->
+
 
       </div>
 
@@ -137,6 +123,29 @@
 
       </div>
     </div> -->
+    <!-- MODAL -->
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">
+      </div>
+      <div class="image content">
+        <div class="description">
+          <div class="location">
+            <h3>Location:</h3>
+            <p class="location-tag">
 
+            </p>
+          </div>
+          <div class="time">
+            <h3>Event Time:</h3>
+            <p class="time-tag">
+            <p>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <div id="save-event" class="ui button primary">Favorite <i class="heart icon"></i></div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,16 +1,17 @@
 $('.menu .item').tab();
 
-var zip;
-function getZip(form){
-  $("i").on("click", function(){
-    zip = form.find("[name=zip]").val();
-    $(".modal-zip").fadeOut();
-    getData(zip);
-  })
+// var zip;
+// function getZip(form){
+  // $("#filtersearch").on("click", function(e){
+  //   e.preventDefault();
+  //   zip = form.find("[name=zip]").val();
+  //   $(".modal-zip").fadeOut();
+  //   getData(zip);
+  // })
 
 
 
-}
+// }
 
 var setGlobalEmptyState = function() {
   $('.content').each(function(i, el) {
@@ -26,7 +27,7 @@ function getData(zip){
   var key = "3cf4bf019f05b262b3e7ae8f899feebe"
 
   // query the API here!
-  $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?zip=' + zip + '&units=imperial&cnt=7' + '&APPID=' + key, function(data){
+  $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?zip=' + zip + ',us&units=imperial&cnt=7' + '&APPID=' + key, function(data){
     console.log(data);
     var allDates = data.list;
 
@@ -47,6 +48,10 @@ function isEmpty( el ){
 }
 
 function createWeatherAccordian(index,data,singleDate){
+
+  $(".empty-div").fadeOut();
+
+  $("#data-accordion").fadeIn();
 
   var date = singleDate.dt;
 
@@ -138,7 +143,7 @@ $(function() {
   $('.ui.dropdown').dropdown();
   var $form = $(".search-form");
 
-  getZip($form);
+  // getZip($form);
   $('.ui.icon.input')
     .form({
       fields: {
@@ -146,6 +151,8 @@ $(function() {
       }
   });
 
+  // $("#loader").show();
+  $("#data-accordion").hide();
 
   $('.ui.accordion').accordion();
 
