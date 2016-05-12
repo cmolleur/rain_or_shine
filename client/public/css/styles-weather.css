@@ -201,6 +201,15 @@ nav {
 .time {
   margin-top: 15px;
 }
+.empty-div {
+  display: flex;
+  height:100%;
+  align-items: center;
+ justify-content: center;
+}
+.empty-div img {
+  max-width: 200px;
+}
 
 
 @media (min-width:720px) and (max-width: 899px) {

@@ -49,6 +49,8 @@ function isEmpty( el ){
 
 function createWeatherAccordian(index,data,singleDate){
 
+  $(".empty-div").fadeOut();
+
   $("#data-accordion").fadeIn();
 
   var date = singleDate.dt;

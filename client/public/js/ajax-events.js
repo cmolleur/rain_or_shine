@@ -223,12 +223,12 @@ function geekParser(json){
 var object = json.events || [];
 for (var i = 0; i < object.length; i++) {
     var geekobj = {}
-     geekobj.title = object[i].title
-     geekobj.type = object[i].type
-     geekobj.time = object[i].datetime_local
+     geekobj.title = object[i].title;
+     geekobj.type = object[i].type;
+     geekobj.time = object[i].datetime_local;
 
-     geekobj.venue_name = object[i].venue.name
-     geekobj.venue_address = object[i].venue.address
+     geekobj.venue_name = object[i].venue.name;
+     geekobj.venue_address = object[i].venue.address;
      geekobj.day = new Date(geekobj.time).getUTCDay()
 
      weekObjectParser(geekobj)
@@ -508,6 +508,20 @@ function eventTitleHandler(obj){
     time = $('<p>').text(obj.time);
     venuename = $('<p>').text(obj.venue_name);
     venueaddress = $('<p>').text(obj.venue_address);
+
+    // // Create a new JavaScript Date object based on the timestamp
+    // // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    // var date = new Date(unix_timestamp*1000);
+    // // Hours part from the timestamp
+    // var hours = date.getHours();
+    // // Minutes part from the timestamp
+    // var minutes = "0" + date.getMinutes();
+    // // Seconds part from the timestamp
+    // var seconds = "0" + date.getSeconds();
+    //
+    // // Will display time in 10:30:23 format
+    // var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
 
     $(".close").on("click", function(e){
       $(".header").empty();
