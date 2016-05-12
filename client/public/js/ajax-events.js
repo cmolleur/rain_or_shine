@@ -211,6 +211,7 @@ var ajax11 = $.getJSON('http://api.eventful.com/json/events/search?location='+zi
 $.when(ajax1, ajax2, ajax3, ajax4, ajax5, ajax6, ajax7, ajax8, ajax9, ajax10, ajax11).then(function() {
   filterRender();
   setGlobalEmptyState();
+  $("#loader").hide();
 })
 }
 
@@ -225,6 +226,7 @@ for (var i = 0; i < object.length; i++) {
      geekobj.title = object[i].title
      geekobj.type = object[i].type
      geekobj.time = object[i].datetime_local
+
      geekobj.venue_name = object[i].venue.name
      geekobj.venue_address = object[i].venue.address
      geekobj.day = new Date(geekobj.time).getUTCDay()
@@ -323,24 +325,25 @@ function eventParsershows(json){
 function eventRender(obj){
    title = $('<h3>').addClass("event-title").text(obj.title)
    type = $('<h4>').text(obj.type)
-   time = $('<h5>').text(obj.time)
-   venuename = $('<h5>').text(obj.venue_name)
-   venueaddress = $('<h5>').text(obj.venue_address)
+   title.click(function(e){
+     e.stopPropagation();
+     eventTitleHandler(obj);
+   });
 
    if(obj.day==0){
-   $('.day7').append(title, type, time, venuename, venueaddress)}
+   $('.day7').append(title)}
    if(obj.day==1){
-   $('.day1').append(title, type, time, venuename, venueaddress)}
+   $('.day1').append(title)}
    if(obj.day==2){
-   $('.day2').append(title, type, time, venuename, venueaddress)}
+   $('.day2').append(title)}
    if(obj.day==3){
-   $('.day3').append(title, type, time, venuename, venueaddress)}
+   $('.day3').append(title)}
    if(obj.day==4){
-   $('.day4').append(title, type, time, venuename, venueaddress)}
+   $('.day4').append(title)}
    if(obj.day==5){
-   $('.day5').append(title, type, time, venuename, venueaddress)}
+   $('.day5').append(title)}
    if(obj.day==6){
-   $('.day6').append(title, type, time, venuename, venueaddress)}
+   $('.day6').append(title)}
 
 }
 
@@ -351,24 +354,26 @@ function sportsRender(obj){
 
    title = $('<h3>').addClass("event-title").text(obj.title)
    type = $('<h4>').text(obj.type)
-   time = $('<h5>').text(obj.time)
-   venuename = $('<h5>').text(obj.venue_name)
-   venueaddress = $('<h5>').text(obj.venue_address)
+
+   title.click(function(e){
+     e.stopPropagation();
+     eventTitleHandler(obj);
+   });
 
    if(obj.day==0){
-   $('.day7').append(title, type, time, venuename, venueaddress)}
+   $('.day7').append(title)}
    if(obj.day==1){
-   $('.day1').append(title, type, time, venuename, venueaddress)}
+   $('.day1').append(title)}
    if(obj.day==2){
-   $('.day2').append(title, type, time, venuename, venueaddress)}
+   $('.day2').append(title)}
    if(obj.day==3){
-   $('.day3').append(title, type, time, venuename, venueaddress)}
+   $('.day3').append(title)}
    if(obj.day==4){
-   $('.day4').append(title, type, time, venuename, venueaddress)}
+   $('.day4').append(title)}
    if(obj.day==5){
-   $('.day5').append(title, type, time, venuename, venueaddress)}
+   $('.day5').append(title)}
    if(obj.day==6){
-   $('.day6').append(title, type, time, venuename, venueaddress)}
+   $('.day6').append(title)}
  }
 }
 function sportsOutdoorRender(obj){
@@ -377,24 +382,26 @@ function sportsOutdoorRender(obj){
 
    title = $('<h3>').addClass("event-title").text(obj.title)
    type = $('<h4>').text(obj.type)
-   time = $('<h5>').text(obj.time)
-   venuename = $('<h5>').text(obj.venue_name)
-   venueaddress = $('<h5>').text(obj.venue_address)
+
+   title.click(function(e){
+     e.stopPropagation();
+     eventTitleHandler(obj);
+   });
 
    if(obj.day==0){
-   $('.day7').append(title, type, time, venuename, venueaddress)}
+   $('.day7').append(title)}
    if(obj.day==1){
-   $('.day1').append(title, type, time, venuename, venueaddress)}
+   $('.day1').append(title)}
    if(obj.day==2){
-   $('.day2').append(title, type, time, venuename, venueaddress)}
+   $('.day2').append(title)}
    if(obj.day==3){
-   $('.day3').append(title, type, time, venuename, venueaddress)}
+   $('.day3').append(title)}
    if(obj.day==4){
-   $('.day4').append(title, type, time, venuename, venueaddress)}
+   $('.day4').append(title)}
    if(obj.day==5){
-   $('.day5').append(title, type, time, venuename, venueaddress)}
+   $('.day5').append(title)}
    if(obj.day==6){
-   $('.day6').append(title, type, time, venuename, venueaddress)}
+   $('.day6').append(title)}
  }
 }
 
@@ -404,24 +411,25 @@ function musicRender(obj){
   {
    title = $('<h3>').addClass("event-title").text(obj.title)
    type = $('<h4>').text(obj.type)
-   time = $('<h5>').text(obj.time)
-   venuename = $('<h5>').text(obj.venue_name)
-   venueaddress = $('<h5>').text(obj.venue_address)
+   title.click(function(e){
+     e.stopPropagation();
+     eventTitleHandler(obj);
+   });
 
    if(obj.day==0){
-   $('.day7').append(title, type, time, venuename, venueaddress)}
+   $('.day7').append(title)}
    if(obj.day==1){
-   $('.day1').append(title, type, time, venuename, venueaddress)}
+   $('.day1').append(title)}
    if(obj.day==2){
-   $('.day2').append(title, type, time, venuename, venueaddress)}
+   $('.day2').append(title)}
    if(obj.day==3){
-   $('.day3').append(title, type, time, venuename, venueaddress)}
+   $('.day3').append(title)}
    if(obj.day==4){
-   $('.day4').append(title, type, time, venuename, venueaddress)}
+   $('.day4').append(title)}
    if(obj.day==5){
-   $('.day5').append(title, type, time, venuename, venueaddress)}
+   $('.day5').append(title)}
    if(obj.day==6){
-   $('.day6').append(title, type, time, venuename, venueaddress)}
+   $('.day6').append(title)}
  }
 }
 function musicOutdoorRender(obj){
@@ -429,27 +437,27 @@ function musicOutdoorRender(obj){
   {
 
 
-   title = $('<h3>').text(obj.title)
-
-   type = $('<h3>').addClass("event-title").text(obj.type)
-   time = $('<h5>').text(obj.time)
-   venuename = $('<h5>').text(obj.venue_name)
-   venueaddress = $('<h5>').text(obj.venue_address)
+   title = $('<h3>').addClass("event-title").text(obj.title)
+   type = $('<h3>').text(obj.type)
+   title.click(function(e){
+     e.stopPropagation();
+     eventTitleHandler(obj);
+   });
 
    if(obj.day==0){
-   $('.day7').append(title, type, time, venuename, venueaddress)}
+   $('.day7').append(title)}
    if(obj.day==1){
-   $('.day1').append(title, type, time, venuename, venueaddress)}
+   $('.day1').append(title)}
    if(obj.day==2){
-   $('.day2').append(title, type, time, venuename, venueaddress)}
+   $('.day2').append(title)}
    if(obj.day==3){
-   $('.day3').append(title, type, time, venuename, venueaddress)}
+   $('.day3').append(title)}
    if(obj.day==4){
-   $('.day4').append(title, type, time, venuename, venueaddress)}
+   $('.day4').append(title)}
    if(obj.day==5){
-   $('.day5').append(title, type, time, venuename, venueaddress)}
+   $('.day5').append(title)}
    if(obj.day==6){
-   $('.day6').append(title, type, time, venuename, venueaddress)}
+   $('.day6').append(title)}
  }
 }
 
@@ -465,31 +473,31 @@ function showsRender(obj){
 
    if(obj.day==0){
     //  $('.day7').text('')
-     $('.day7').append(title, type)
+     $('.day7').append(title)
    }
    if(obj.day==1){
     //  $('.day1').text('')
-     $('.day1').append(title, type)
+     $('.day1').append(title)
    }
    if(obj.day==2){
     //  $('.day2').text('')
-     $('.day2').append(title, type)
+     $('.day2').append(title)
    }
    if(obj.day==3){
 
-     $('.day3').append(title, type)
+     $('.day3').append(title)
    }
    if(obj.day==4){
     //  $('.day4').text('')
-     $('.day4').append(title, type)
+     $('.day4').append(title)
    }
    if(obj.day==5){
     //  $('.day5').text('')
-     $('.day5').append(title, type)
+     $('.day5').append(title)
    }
    if(obj.day==6){
       // $('.day6').text('')
-     $('.day6').append(title, type)
+     $('.day6').append(title)
    }
   }
 }
@@ -502,7 +510,6 @@ function eventTitleHandler(obj){
     venueaddress = $('<p>').text(obj.venue_address);
 
     $(".close").on("click", function(e){
-      e.preventDefault();
       $(".header").empty();
       $(".time-tag").empty();
       $(".location-tag").empty();
