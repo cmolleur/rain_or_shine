@@ -506,26 +506,14 @@ function eventTitleHandler(obj){
   // console.log(obj);
     title = $('<h3>').text(obj.title);
 
-    // Create a new JavaScript Date object based on the timestamp
-    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-
-    // Date.parse(obj.time)/1000;
-    //
-    // var date = new Date(obj.time*1000);
-    // // Hours part from the timestamp
-    // var hours = date.getHours();
-    // // Minutes part from the timestamp
-    // var minutes = "0" + date.getMinutes();
-    // // Seconds part from the timestamp
-    // var seconds = "0" + date.getSeconds();
-    //
-    // // Will display time in 10:30:23 format
-    // var time = $('<p>').text(hours + ':' + minutes.substr(-2));
-
 
     time = $('<p>').text(obj.time);
     venuename = $('<p>').text(obj.venue_name);
     venueaddress = $('<p>').text(obj.venue_address);
+    title = $('<h3>').text(obj.title).addClass('modaltitle');
+    time = $('<p>').text(obj.time).addClass('modaltime');
+    venuename = $('<p>').text(obj.venue_name).addClass('modalvenname');
+    venueaddress = $('<p>').text(obj.venue_address).addClass('modaladdress');
 
     // // Create a new JavaScript Date object based on the timestamp
     // // multiplied by 1000 so that the argument is in milliseconds, not seconds.
@@ -552,6 +540,34 @@ function eventTitleHandler(obj){
     $(".location-tag").append(venuename, venueaddress);
     $(".time-tag").append(time);
     $('.ui.modal').modal('show');
+    $('#save-event').click(saveUserData)
+
+}
+
+
+
+
+function saveUserData(){
+
+var title = $('.modaltitle').text()
+var time = $('.modaltime').text()
+var venuename = $('.modalvenname').text()
+var venueaddress = $('.modaladdress').text()
+saved = $('<p>').text('Saved!!')
+
+
+$.post({url: "/events",
+method: "post",
+data: {
+  title: title,
+  time: time,
+  venuename: venuename,
+  venueaddress: venueaddress
+},
+success: function(data){ console.log(data) }
+
+})
+  $('.actions').append(saved)
 
 }
 
