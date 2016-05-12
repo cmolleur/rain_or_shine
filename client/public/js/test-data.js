@@ -6,8 +6,8 @@ restaurants = [
 ]
 
 bars = [
-  {title: "The Salty Dog Bar", venue_address: "689 W. 51st Street, New York, NY, 10010", website: "",},
-  {title: "Devil's Den Bar", venue_address: "", website: "",},
-  {title: "Brownstone Bar", venue_address: "", website: "",},
-  {title: "Down the Hatch", venue_address: "", website: "",},
+  {title: "The Salty Dog Bar", venue_address: "689 W. 51st Street, New York, NY 10010", website: "www.thesaltydog.com",},
+  {title: "Devil's Den Bar", venue_address: "63 W. 38th Street, New York, NY 10002", website: "www.devilsdenbar.com",},
+  {title: "Brownstone Bar", venue_address: "1561 2nd Avenue, New York, NY 10012", website: "thebrownstone.com",},
+  {title: "Down the Hatch", venue_address: "643 Broadway, New York, NY 10024", website: "www.downthehatch.com",},
 ]
