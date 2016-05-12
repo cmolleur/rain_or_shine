@@ -504,6 +504,12 @@ function showsRender(obj){
 
 function eventTitleHandler(obj){
   // console.log(obj);
+    title = $('<h3>').text(obj.title);
+
+
+    time = $('<p>').text(obj.time);
+    venuename = $('<p>').text(obj.venue_name);
+    venueaddress = $('<p>').text(obj.venue_address);
     title = $('<h3>').text(obj.title).addClass('modaltitle');
     time = $('<p>').text(obj.time).addClass('modaltime');
     venuename = $('<p>').text(obj.venue_name).addClass('modalvenname');

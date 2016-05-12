@@ -56,6 +56,15 @@ hr {
 #signup {
   max-width: 500px;
 }
+
+.saved-event {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0px;
+}
+.saved-event:last-child {
+  border-bottom: none;
+}
+
 @media (max-width: 719px) {
   h1 {
     font-size: 20px;

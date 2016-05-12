@@ -87,29 +87,30 @@ auth.users = {
 
 function renderUserData(){
   $.post({url: "/events",
-method: "get",
-success: function(data){
+  method: "get",
+
+  success: function(data){
   console.log(data);
   $("#username-display").text(data.username);
 
   for (var i = 0; i < data.events.length; i++) {
-    usersaved =  $('<div>')
-    savetitle   = data.events[i].title
-    saveaddress =  data.events[i].venueaddress
-    savevenname = data.events[i].venuename
-    savetime    = data.events[i].time
-    usersaved.text(savetitle + " " + saveaddress + " " + savevenname + " " + savetime )
+    usersaved =  $('<div>').addClass("saved-event");
+    savetitle   = $('<h3>').text(data.events[i].title);
+    saveaddress =  $("<p>").text(data.events[i].venueaddress);
+    savevenname = $("<p>").text(data.events[i].venuename);
+    savetime    = $("<p>").text(data.events[i].time);
+    // usersaved.text( " " + saveaddress + " " + savevenname + " " + savetime )
 
     $('.user-profile').append(usersaved)
+    $(usersaved).append(savetitle)
+    $(usersaved).append(saveaddress)
+    $(usersaved).append(savevenname)
+    $(usersaved).append(savetime)
+  }
 
   }
 
-
-  }
-
-
-})
-
+  })
 
 }
 
