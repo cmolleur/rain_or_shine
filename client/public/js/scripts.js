@@ -161,6 +161,7 @@ auth.bindLogoutLink = function(){
 
 auth.checkLoggedInStatus= function(){
   var token = auth.getToken();
+  console.log(token);
 
   if(token){
     auth.setLoggedInState();
