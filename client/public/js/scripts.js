@@ -90,7 +90,6 @@ function renderUserData(){
   method: "get",
 
   success: function(data){
-  console.log(data);
   $("#username-display").text(data.username);
 
   for (var i = 0; i < data.events.length; i++) {
@@ -100,6 +99,8 @@ function renderUserData(){
     savevenname = $("<p>").text(data.events[i].venuename);
     savetime    = $("<p>").text(data.events[i].time)
     savetime.addClass("timestamp");
+    savetitle.addClass('deletetitle')
+    savetitle.css('color', 'blue')
     ;
     // usersaved.text( " " + saveaddress + " " + savevenname + " " + savetime )
 
@@ -108,8 +109,10 @@ function renderUserData(){
     $(usersaved).append(saveaddress)
     $(usersaved).append(savevenname)
     $(usersaved).append(savetime)
-  }
 
+
+  }
+    $('.deletetitle').click(removeFavorite)
   }
 
   })
@@ -117,7 +120,17 @@ function renderUserData(){
 }
 
 
+function removeFavorite(){
 
+  $.ajax({url: "/events",
+  method: "delete",
+  data: {
+    name: $(this).text()
+  }
+
+  })
+$(this).parent().empty()
+}
 
 
 

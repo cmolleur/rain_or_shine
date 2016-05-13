@@ -16,9 +16,9 @@ usersRouter.post('/', passport.authenticate('local', { session: false }), functi
     expiresIn: 1440 // expires in 24 hours
   });
   res.json({ token: token,
-  user: req.user,  
+  user: req.user,
   redirect: "/weather" });
-  console.log(token);
+
   // res.redirect('/weather')
 });
 
