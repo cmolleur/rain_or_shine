@@ -98,9 +98,13 @@ function renderUserData(){
     saveaddress =  $("<p>").text(data.events[i].venueaddress);
     savevenname = $("<p>").text(data.events[i].venuename);
     savetime    = $("<p>").text(data.events[i].time)
+    saveIcon = $("<i>").addClass("close icon");
     savetime.addClass("timestamp");
     savetitle.addClass('deletetitle')
-    savetitle.css('color', 'blue')
+    savetitle.css({
+      'color': "#2185d0",
+      "cursor": "pointer"
+    })
     ;
     // usersaved.text( " " + saveaddress + " " + savevenname + " " + savetime )
 
