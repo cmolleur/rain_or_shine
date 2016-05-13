@@ -40,7 +40,7 @@ function getData(zip){
     $(".city-zip").text(data.city.name);
 
   });
-
+  // searching = false;
 }
 
 function isEmpty( el ){

@@ -20,7 +20,7 @@ Saturday: []
 
 
 function sportsDisplay(){
-
+    console.log("sports are displaying!");
     day7 = weekObject.Sunday
     for (var i = 0; i < day7.length; i++) {
       sportsRender(day7[i])
@@ -53,6 +53,7 @@ function sportsDisplay(){
 
 }
 function sportsOutdoorDisplay(){
+  console.log("OUTDOOR sports are displaying!");
 
     day7 = weekObject.Sunday
     for (var i = 0; i < day7.length; i++) {
@@ -87,6 +88,8 @@ function sportsOutdoorDisplay(){
 }
 
 function musicDisplay(){
+  console.log("MUSIC is displaying!");
+
     day7 = weekObject.Sunday
     for (var i = 0; i < day7.length; i++) {
       musicRender(day7[i])
@@ -117,6 +120,7 @@ function musicDisplay(){
     }
 }
 function musicOutdoorDisplay(){
+  console.log("Outdoor Music is displaying!");
 
     day7 = weekObject.Sunday
     for (var i = 0; i < day7.length; i++) {
@@ -150,6 +154,8 @@ function musicOutdoorDisplay(){
 }
 
 function showsDisplay(){
+  console.log("shows are displaying!");
+
     day7 = weekObject.Sunday
     for (var i = 0; i < day7.length; i++) {
       showsRender(day7[i])
@@ -212,6 +218,7 @@ $.when(ajax1, ajax2, ajax3, ajax4, ajax5, ajax6, ajax7, ajax8, ajax9, ajax10, aj
   filterRender();
   setGlobalEmptyState();
   $("#loader").hide();
+  searching = false;
 })
 }
 
@@ -529,7 +536,7 @@ function eventTitleHandler(obj){
     // var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
 
-    $(".close").on("click", function(e){
+    $(".close").on( "click", function(e){
       $(".header").empty();
       $(".time-tag").empty();
       $(".location-tag").empty();
