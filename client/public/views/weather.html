@@ -32,7 +32,7 @@
 
 
           <div id="city-search" class="ui icon input">
-            <input id='zipsearch' type="text" placeholder="Enter Zipcode">
+            <input id='zipsearch' type="text" placeholder="Enter Zipcode or City">
             <i class="search icon"></i>
           </div>
 
@@ -42,7 +42,7 @@
 
         <div id='drop' class="ui selection dropdown">
           <i class="dropdown icon"></i>
-          <div class="default text">Event Type</div>
+          <div class="default text">Activities in </div>
           <div class="menu">
             <div class="item" value="1">Indoor</div>
             <div class="item" value="2">Outdoor</div>            <div class="item" value="0">All</div>
@@ -62,11 +62,11 @@
           </div>
           <div id='shows' class="ui checkbox showsbox">
             <input type="checkbox" name="example">
-            <label>Shows</label>
+            <label>Theatre & Comedy</label>
           </div>
           <div id='music' class="ui checkbox musicbox">
             <input type="checkbox" name="example">
-            <label>Concerts</label>
+            <label>Music Concerts</label>
           </div>
           <button id = 'filtersearch' class="ui primary button">
             Search
@@ -81,7 +81,7 @@
           </a> -->
           <a href="/user">
             <button id="account" class="ui inverted button">
-              Account
+              Favorites
             </button>
           </a>
           <!-- <button id="logout" class="ui inverted button">
@@ -145,6 +145,12 @@
       </div>
       <div class="actions">
         <div id="save-event" class="ui button primary">Favorite <i class="heart icon"></i></div>
+        <p class="saved-alert">
+          Saved!
+        </p>
+        <p class="error-login">
+          Please Login to Save an Event
+        </p>
       </div>
     </div>
   </body>

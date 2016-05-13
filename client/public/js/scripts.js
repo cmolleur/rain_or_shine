@@ -98,7 +98,9 @@ function renderUserData(){
     savetitle   = $('<h3>').text(data.events[i].title);
     saveaddress =  $("<p>").text(data.events[i].venueaddress);
     savevenname = $("<p>").text(data.events[i].venuename);
-    savetime    = $("<p>").text(data.events[i].time);
+    savetime    = $("<p>").text(data.events[i].time)
+    savetime.addClass("timestamp");
+    ;
     // usersaved.text( " " + saveaddress + " " + savevenname + " " + savetime )
 
     $('.user-profile').append(usersaved)

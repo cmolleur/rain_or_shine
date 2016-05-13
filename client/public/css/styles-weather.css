@@ -210,7 +210,12 @@ nav {
 .empty-div img {
   max-width: 200px;
 }
-
+.saved-alert {
+  display: none;
+}
+.error-login {
+  display: none;
+}
 
 @media (min-width:720px) and (max-width: 899px) {
   .zip-container {

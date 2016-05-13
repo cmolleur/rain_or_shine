@@ -28,7 +28,7 @@ function getData(zip){
 
   // query the API here!
   $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?zip=' + zip + ',us&units=imperial&cnt=7' + '&APPID=' + key, function(data){
-    console.log(data);
+    // console.log(data);
     var allDates = data.list;
 
     for (var i = 0; i < allDates.length; i++) {
@@ -59,7 +59,7 @@ function createWeatherAccordian(index,data,singleDate){
   newTimeStamp.setTime(date*1000); // javascript timestamps are in milliseconds
   date = newTimeStamp.toDateString();
 
-  console.log(date);
+  // console.log(date);
 
 
 
@@ -79,12 +79,12 @@ function createWeatherAccordian(index,data,singleDate){
   var date = $('<h2>').text(date + " : ");
 
   var weatherIconImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + weatherIcon);
-  console.log(weatherIconImg);
+  // console.log(weatherIconImg);
 
   var iconDiv = $('<span>').addClass("weather-image").append(weatherIconImg);
   var weatherTypeDiv = $('<span>').addClass("weather-type").append(weatherType);
 
-  var temperature = $('<h2>').text(temp + "˚");
+  var temperature = $('<h2>').text(temp + "˚" + "F");
   var min = $("<span>").text("Low " + minTemp + "˚");
   var max = $("<span>").text("High " + maxTemp + "˚");
   $weatherTab.append(date, temperature, iconDiv, weatherTypeDiv);
@@ -133,7 +133,7 @@ function empty(){
   }else {
     $(".content").text("Insert Event Here");
   }
-  console.log("empty function");
+  // console.log("empty function");
 }
 empty();
 

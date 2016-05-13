@@ -540,7 +540,7 @@ function eventTitleHandler(obj){
     $(".location-tag").append(venuename, venueaddress);
     $(".time-tag").append(time);
     $('.ui.modal').modal('show');
-    $('#save-event').click(saveUserData)
+    $('#save-event').off().click(saveUserData)
 
 }
 
@@ -553,22 +553,42 @@ var title = $('.modaltitle').text()
 var time = $('.modaltime').text()
 var venuename = $('.modalvenname').text()
 var venueaddress = $('.modaladdress').text()
-saved = $('<p>').text('Saved!!')
+var saved = $(".saved-alert")
+var errorLogin = $(".error-login")
 
 
 $.post({url: "/events",
-method: "post",
-data: {
-  title: title,
-  time: time,
-  venuename: venuename,
-  venueaddress: venueaddress
-},
-success: function(data){ console.log(data) }
+  method: "post",
+  data: {
+    title: title,
+    time: time,
+    venuename: venuename,
+    venueaddress: venueaddress
+  },
+  success: function(data){
+    $(saved).fadeIn().delay(1000).fadeOut('slow');
+    console.log(data)
+  },
+  error: function(data){
+    $(errorLogin).fadeIn().delay(2000).fadeOut('slow');
+    console.log(data)
 
+  }
 })
-  $('.actions').append(saved)
 
+// $.post({url: "/events",
+// method: "post",
+// data: {
+//   title: title,
+//   time: time,
+//   venuename: venuename,
+//   venueaddress: venueaddress
+// },
+// success: function(data){ console.log(data) }
+//
+// })
+// $(saved).fadeIn().delay(1000).fadeOut('slow');
+//
 }
 
 
