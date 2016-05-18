@@ -27,3 +27,9 @@ The search results:
 Event Details:  
 ![ScreenShot](client/public/images/event-details.png)
 
+What the user will see at the log in page:  
+![ScreenShot](client/public/images/login.png)  
+  
+User Account:  
+![ScreenShot](client/public/images/account.png)  
+  
