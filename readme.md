@@ -27,5 +27,5 @@ What the user will see at the log in page:
 The main page before a search:  
 ![ScreenShot](client/public/images/Main_Page.png)  
   
-The search results:
+The search results:  
 ![ScreenShot](client/public/images/Search_Results.png)
