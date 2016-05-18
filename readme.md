@@ -18,9 +18,6 @@ in my area so I can optimally plan. Additionally, I want to save or "favorite"
 some of my preferred events to my user profile.
   
 **Screenshots**  
-What the user will see at the log in page:  
-![ScreenShot](client/public/images/login.png)  
-  
 The main page before a search:  
 ![ScreenShot](client/public/images/homepage.png)  
   
@@ -29,3 +26,4 @@ The search results:
 
 Event Details:  
 ![ScreenShot](client/public/images/event-details.png)
+
