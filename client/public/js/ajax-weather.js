@@ -49,7 +49,7 @@ function isEmpty( el ){
 
 function createWeatherAccordian(index,data,singleDate){
 
-  $(".empty-div").fadeOut();
+  $(".empty-div").hide();
 
   $("#data-accordion").fadeIn();
 

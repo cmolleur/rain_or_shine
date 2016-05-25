@@ -1,15 +1,13 @@
-console.log('hey whats up');
+// console.log('hey whats up');
 
 weekObject = {
-
-Sunday: [],
-Monday: [],
-Tuesday: [],
-Wednesday: [],
-Thursday: [],
-Friday: [],
-Saturday: []
-
+  Sunday: [],
+  Monday: [],
+  Tuesday: [],
+  Wednesday: [],
+  Thursday: [],
+  Friday: [],
+  Saturday: []
 }
 
 
@@ -156,70 +154,80 @@ function musicOutdoorDisplay(){
 function showsDisplay(){
   console.log("shows are displaying!");
 
-    day7 = weekObject.Sunday
-    for (var i = 0; i < day7.length; i++) {
-      showsRender(day7[i])
-    }
-    day6 = weekObject.Saturday
-    for (var i = 0; i < day6.length; i++) {
-      showsRender(day6[i])
-    }
-    day5 = weekObject.Friday
-    for (var i = 0; i < day5.length; i++) {
-      showsRender(day5[i])
-    }
-    day4 = weekObject.Thursday
-    for (var i = 0; i < day4.length; i++) {
-      showsRender(day4[i])
-    }
-    day3 = weekObject.Wednesday
-    for (var i = 0; i < day3.length; i++) {
-      showsRender(day3[i])
-    }
-    day2 = weekObject.Tuesday
-    for (var i = 0; i < day2.length; i++) {
-      showsRender(day2[i])
-    }
-    day1 = weekObject.Monday
-    for (var i = 0; i < day1.length; i++) {
-      showsRender(day1[i])
-    }
+  day7 = weekObject.Sunday
+  for (var i = 0; i < day7.length; i++) {
+    showsRender(day7[i])
+  }
+  day6 = weekObject.Saturday
+  for (var i = 0; i < day6.length; i++) {
+    showsRender(day6[i])
+  }
+  day5 = weekObject.Friday
+  for (var i = 0; i < day5.length; i++) {
+    showsRender(day5[i])
+  }
+  day4 = weekObject.Thursday
+  for (var i = 0; i < day4.length; i++) {
+    showsRender(day4[i])
+  }
+  day3 = weekObject.Wednesday
+  for (var i = 0; i < day3.length; i++) {
+    showsRender(day3[i])
+  }
+  day2 = weekObject.Tuesday
+  for (var i = 0; i < day2.length; i++) {
+    showsRender(day2[i])
+  }
+  day1 = weekObject.Monday
+  for (var i = 0; i < day1.length; i++) {
+    showsRender(day1[i])
+  }
 }
 
 
 function dateParser(zipcode){
-var dateObj = new Date();
-var month = dateObj.getUTCMonth() + 1; //months from 1-12
-var day = dateObj.getDate();
-var year = dateObj.getFullYear();
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; //months from 1-12
+  var day = dateObj.getDate();
+  var year = dateObj.getFullYear();
 
-newdate = year + "-" + month + "-" + day;
-enddate = year + "-" + month + "-" + (day+7);
+  // newdate = year + "-" + month + "-" + day;
+  // enddate = year + "-" + month + "-" + (day + 7);
 
-// zipcode = filterobj.zipcode
+  var nextWeek = new Date();
+  nextWeek.setDate(dateObj.getDate() + 7);
+  var month2 = nextWeek.getUTCMonth() + 1; //months from 1-12
+  var day2 = nextWeek.getDate();
+  var year2 = nextWeek.getFullYear();
+
+  // 2016-5-25
+  // 2016-6-1
+  newdate = year + "-" + month + "-" + day;
+  enddate = year2 + "-" + month2 + "-" + day2;
+
+  // zipcode = filterobj.zipcode
+
+  eventnew = year + '0' + month + day + '00' + "-" + year + '0' + month + (day + 7)+ '00'
+
+  var ajax1 = $.getJSON('https://api.seatgeek.com/2/events?venue.id=7962&datetime_utc.gte='+ newdate +'&datetime_utc.lte=' + enddate + "&client_id=NDgxNjM2N3wxNDY0MTk2OTM0", function(json){geekParser(json)})
+  var ajax2 = $.getJSON('https://api.seatgeek.com/2/events?venue.id=2118&datetime_utc.gte='+ newdate + '&datetime_utc.lte='+ enddate + "&client_id=NDgxNjM2N3wxNDY0MTk2OTM0", function(json){geekParser(json)})
+  var ajax3 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=mlb&venue.city=bronx&datetime_utc.gte='+newdate+'&datetime_utc.lte='+enddate + "&client_id=NDgxNjM2N3wxNDY0MTk2OTM0", function(json){geekParser(json)})
+  var ajax4 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.id=2010000&venue.city=ny&datetime_utc.gte='+ newdate+'&datetime_utc.lte='+enddate + "&client_id=NDgxNjM2N3wxNDY0MTk2OTM0", function(json){geekParser(json)})
+  var ajax5 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=sports&venue.city=ny&datetime_utc.gte='+ newdate+'&datetime_utc.lte='+enddate + "&client_id=NDgxNjM2N3wxNDY0MTk2OTM0", function(json){geekParser(json)})
+  var ajax6 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=theater&venue.city=brooklyn&datetime_utc.gte='+ newdate+'&datetime_utc.lte='+enddate + "&client_id=NDgxNjM2N3wxNDY0MTk2OTM0", function(json){geekParser(json)})
+  var ajax7 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=theater&venue.city=ny&datetime_utc.gte='+ newdate+'&datetime_utc.lte='+enddate + "&client_id=NDgxNjM2N3wxNDY0MTk2OTM0", function(json){geekParser(json)})
+  var ajax8 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=mlb&venue.city=flushing&datetime_utc.gte='+newdate+'&datetime_utc.lte='+enddate + "&client_id=NDgxNjM2N3wxNDY0MTk2OTM0", function(json){geekParser(json)})
+  var ajax9 = $.getJSON('http://api.eventful.com/json/events/search?location='+zipcode+'&app_key=3twjh79SHQ9wBjrx&date='+eventnew+'&q=music&callback=?', function(json){eventParsermusic(json)})
+  var ajax10 = $.getJSON('http://api.eventful.com/json/events/search?location='+zipcode+'&app_key=3twjh79SHQ9wBjrx&date='+eventnew+'&q=comedy&callback=?', function(json){eventParsercomedy(json)})
+  var ajax11 = $.getJSON('http://api.eventful.com/json/events/search?location='+zipcode+'&app_key=3twjh79SHQ9wBjrx&date='+eventnew+'&q=shows&callback=?', function(json){eventParsershows(json);})
 
 
-eventnew = year + '0' + month + day + '00' + "-" + year + '0' +month + (day+7)+ '00'
-
-var ajax1 = $.getJSON('https://api.seatgeek.com/2/events?venue.id=7962&datetime_utc.gte='+ newdate +'&datetime_utc.lte=' + enddate, function(json){geekParser(json)})
-var ajax2 = $.getJSON('https://api.seatgeek.com/2/events?venue.id=2118&datetime_utc.gte='+ newdate + '&datetime_utc.lte='+ enddate, function(json){geekParser(json)})
-var ajax3 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=mlb&venue.city=bronx&datetime_utc.gte='+newdate+'&datetime_utc.lte='+enddate, function(json){geekParser(json)})
-var ajax4 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.id=2010000&venue.city=ny&datetime_utc.gte='+ newdate+'&datetime_utc.lte='+enddate, function(json){geekParser(json)})
-var ajax5 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=sports&venue.city=ny&datetime_utc.gte='+ newdate+'&datetime_utc.lte='+enddate, function(json){geekParser(json)})
-var ajax6 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=theater&venue.city=brooklyn&datetime_utc.gte='+ newdate+'&datetime_utc.lte='+enddate, function(json){geekParser(json)})
-var ajax7 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=theater&venue.city=ny&datetime_utc.gte='+ newdate+'&datetime_utc.lte='+enddate, function(json){geekParser(json)})
-var ajax8 = $.getJSON('https://api.seatgeek.com/2/events?taxonomies.name=mlb&venue.city=flushing&datetime_utc.gte='+newdate+'&datetime_utc.lte='+enddate, function(json){geekParser(json)})
-var ajax9 = $.getJSON('http://api.eventful.com/json/events/search?location='+zipcode+'&app_key=3twjh79SHQ9wBjrx&date='+eventnew+'&q=music&callback=?', function(json){eventParsermusic(json)})
-var ajax10 = $.getJSON('http://api.eventful.com/json/events/search?location='+zipcode+'&app_key=3twjh79SHQ9wBjrx&date='+eventnew+'&q=comedy&callback=?', function(json){eventParsercomedy(json)})
-var ajax11 = $.getJSON('http://api.eventful.com/json/events/search?location='+zipcode+'&app_key=3twjh79SHQ9wBjrx&date='+eventnew+'&q=shows&callback=?', function(json){eventParsershows(json);})
-
-
-$.when(ajax1, ajax2, ajax3, ajax4, ajax5, ajax6, ajax7, ajax8, ajax9, ajax10, ajax11).then(function() {
-  filterRender();
-  setGlobalEmptyState();
-  $("#loader").hide();
-  searching = false;
-})
+  $.when(ajax1, ajax2, ajax3, ajax4, ajax5, ajax6, ajax7, ajax8, ajax9, ajax10, ajax11).then(function() {
+    filterRender();
+    setGlobalEmptyState();
+    $("#loader").hide();
+    searching = false;
+  })
 }
 
 

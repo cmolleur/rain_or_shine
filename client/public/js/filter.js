@@ -20,7 +20,7 @@ function setFilterHandler(){
     if( !searching ){
       $("#data-accordion").empty();
       searching = true;
-      console.log("GETTIN DATA")
+      // console.log("GETTIN DATA")
       filterobj.zipcode = $('#zipsearch').val()
       filterobj.dropdown = $('.ui.dropdown').dropdown('get value')
       filterobj.showcheck = $('.ui.checkbox.showsbox').checkbox('is checked')
@@ -29,7 +29,7 @@ function setFilterHandler(){
       getData(filterobj.zipcode)
       dateParser(filterobj.zipcode)
     } else {
-      console.log("PLEASE LET THE PASSENGERS OFF THE TRAIN BEFORE GETTING ON")
+      console.log("PLEASE LET THE PASSENGERS OFF THE TRAIN BEFORE BOARDING")
     }
   })
 }
