@@ -16,9 +16,20 @@ $(function(){
 
 function setFilterHandler(){
   $('#filtersearch').on('click', function(e){
-    e.preventDefault()
+    e.preventDefault();
     if( !searching ){
       $("#data-accordion").empty();
+
+      weekObject = {
+        Sunday: [],
+        Monday: [],
+        Tuesday: [],
+        Wednesday: [],
+        Thursday: [],
+        Friday: [],
+        Saturday: []
+      };
+
       searching = true;
       // console.log("GETTIN DATA")
       filterobj.zipcode = $('#zipsearch').val()
@@ -29,7 +40,7 @@ function setFilterHandler(){
       getData(filterobj.zipcode)
       dateParser(filterobj.zipcode)
     } else {
-      console.log("PLEASE LET THE PASSENGERS OFF THE TRAIN BEFORE BOARDING")
+      console.log("PLEASE LET THE PASSENGERS OFF THE TRAIN BEFORE BOARDING!")
     }
   })
 }

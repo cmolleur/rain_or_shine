@@ -11,7 +11,6 @@ weekObject = {
 }
 
 
-
 // function zipSearch(){
 //   $('.search').on('click', dateParser)
 // }
